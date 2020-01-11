@@ -66,3 +66,28 @@ $(".btn9").click(function() {
     localStorage.setItem(ninth, ta9val);
     alert("You have saved to local storage!");
 });
+
+console.log($("#0").text());
+console.log(moment().format("h:mm"));
+console.log(moment().hour());
+// Still Need to do...
+// Show times that have past
+for (var i = 0; i < 9; i++) {
+    var check = "ta" + (i + 1);
+    var checkHour = $("#" + i).attr("data-hour");
+    if (checkHour < moment().hour()){
+        $("." + check).attr("class", "col-sm-10 description ta" + i + " past");
+    }
+    else if (checkHour > moment().hour()){
+        $("." + check).attr("class", "col-sm-10 description ta" + i + " future");
+    }
+    else {
+        $("." + check).attr("class", "col-sm-10 description ta" + i + " present");
+    }
+}
+
+
+// Show the current time
+// Show future times
+// Deploy application
+// Use for loop and add in numbers for text area id's
